@@ -36,20 +36,20 @@ void	ascoding_by_index(t_stack *head)
 	}
 }
 
-int	is_ranking(t_stack *head)
-{
-	int	i;
+// int	is_ranking(t_stack *head)
+// {
+// 	int	i;
 
-	i = head->index;
-	while (head != NULL)
-	{
-		if (head->index != i)
-			return (0);
-		head = head->next;
-		i++;
-	}
-	return (1);
-}
+// 	i = head->index;
+// 	while (head != NULL)
+// 	{
+// 		if (head->index != i)
+// 			return (0);
+// 		head = head->next;
+// 		i++;
+// 	}
+// 	return (1);
+// }
 
 int	ft_atoi(char *str)
 {
@@ -76,20 +76,20 @@ int	ft_atoi(char *str)
 	return ((int)res * sgn);
 }
 
-int	get_positions_node(t_stack *head, int index)
-{
-	int	pos;
+// int	get_positions_node(t_stack *head, int index)
+// {
+// 	int	pos;
 
-	pos = 0;
-	while (head->next != NULL)
-	{
-		if (head->index == index)
-			return (pos);
-		pos++;
-		head = head->next;
-	}
-	return (pos);
-}
+// 	pos = 0;
+// 	while (head->next != NULL)
+// 	{
+// 		if (head->index == index)
+// 			return (pos);
+// 		pos++;
+// 		head = head->next;
+// 	}
+// 	return (pos);
+// }
 
 void	is_there_repetition(t_stack *head)
 {

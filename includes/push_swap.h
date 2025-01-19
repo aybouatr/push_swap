@@ -11,6 +11,7 @@ typedef struct s_stack
 {
    int* data;
    int index;
+   int range;
    struct s_stack *next;
 
 } t_stack;
