@@ -43,6 +43,8 @@ void	ranking_all_digite(t_stack **head_a, t_stack **head_b)
 		else if (get_positions_node(h_b, i) >= ft_lstsize(h_b) / 2)
 			rev_rotate_rrb(&h_b, 1);
 	}
+	ft_free_satck(*head_a);
+	exit(0);
 }
 
 void small_algo(t_stack *head_a, t_stack *head_b)
