@@ -36,22 +36,22 @@ void	ascoding_by_index(t_stack *head)
 	}
 }
 
-// int	is_ranking(t_stack *head)
-// {
-// 	int	i;
+int	is_ranking(t_stack *head)
+{
+	int	i;
 
-// 	i = head->index;
-// 	while (head != NULL)
-// 	{
-// 		if (head->index != i)
-// 			return (0);
-// 		head = head->next;
-// 		i++;
-// 	}
-// 	return (1);
-// }
+	i = head->index;
+	while (head != NULL)
+	{
+		if (head->index != i)
+			return (0);
+		head = head->next;
+		i++;
+	}
+	return (1);
+}
 
-int	ft_atoi(char *str)
+long	ft_atoi(char *str)
 {
 	long	res;
 	size_t	i;
@@ -73,23 +73,23 @@ int	ft_atoi(char *str)
 		res = res * 10 + (str[i] - '0');
 		i++;
 	}
-	return ((int)res * sgn);
+	return (res * sgn);
 }
 
-// int	get_positions_node(t_stack *head, int index)
-// {
-// 	int	pos;
+int	get_positions_node(t_stack *head, int index)
+{
+	int	pos;
 
-// 	pos = 0;
-// 	while (head->next != NULL)
-// 	{
-// 		if (head->index == index)
-// 			return (pos);
-// 		pos++;
-// 		head = head->next;
-// 	}
-// 	return (pos);
-// }
+	pos = 0;
+	while (head->next != NULL)
+	{
+		if (head->index == index)
+			return (pos);
+		pos++;
+		head = head->next;
+	}
+	return (pos);
+}
 
 void	is_there_repetition(t_stack *head)
 {
@@ -103,7 +103,7 @@ void	is_there_repetition(t_stack *head)
 		while (temp->next != NULL)
 		{
 			temp = temp->next;
-			if (*temp->data == *head->data)
+			if (*temp->data == *head->data || (*head->data > 2147483647 || *head->data < -2147483648))
 			{
 				ft_putstr_fd("Error\n", 2);
 				ft_free_satck(temp_two);

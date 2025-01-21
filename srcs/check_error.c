@@ -83,6 +83,7 @@ void	full_stack(int ac, char **av, t_stack **heade)
 		if (*arr == NULL)
 		{
 			ft_putstr_fd("Error\n", 2);
+			ft_free_satck(*heade);
 			exit(1);
 		}
 		ft_free(arr);
@@ -97,8 +98,8 @@ void	ft_free_satck(t_stack *head)
 	while (head != NULL)
 	{
 		temp = head;
+		head = head->next;  
 		free(temp->data);
-		free(temp);
-		head = head->next;
+		free(temp);         
 	}
 }

@@ -9,9 +9,8 @@
 
 typedef struct s_stack
 {
-   int* data;
+   long* data;
    int index;
-   int range;
    struct s_stack *next;
 
 } t_stack;
@@ -20,9 +19,9 @@ void	ft_putstr_fd(char *s, int fd);
 int is_found_alph(char* str);
 int check_error(char** av,int ac);
 void	ft_free(char **arr);
-t_stack	*ft_lstnew(int cont);
+t_stack	*ft_lstnew(long cont);
 void	ft_lstadd_back(t_stack **lst, t_stack *new);
-int	ft_atoi(char *str);
+long	ft_atoi(char *str);
 void full_stack(int ac,char** av,t_stack** heade);
 void is_there_repetition(t_stack *head);
 char	**ft_split(char const *str, char c);
@@ -42,7 +41,9 @@ void rev_rotate_rra(t_stack** head_stack_a,int is_print);
 void rev_rotate_rrb(t_stack** head_stack_a,int is_print);
 void rev_rotate_rrr(t_stack** head_stack_a,t_stack** head_stack_b,int is_print);
 int get_positions_node(t_stack* head,int index);
-void ranking_all_digite(t_stack* head_a,t_stack* head_b);
+void	ranking_all_digite(t_stack **head_a, t_stack **head_b);
+void	ranking_all_digite_help(t_stack *head_a, t_stack *head_b,int start,int size);
+void increament_index(int* start,int* end,int size);
 int is_ranking(t_stack* head);
 void ascoding_by_index(t_stack *head);
 

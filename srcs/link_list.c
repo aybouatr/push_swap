@@ -1,21 +1,24 @@
 #include "../includes/push_swap.h"
 
-t_stack	*ft_lstnew(int cont)
+t_stack *ft_lstnew(long cont)
 {
-	t_stack	*node;
-	int		*content;
+    t_stack *node;
+    long *content;
 
-	node = (t_stack *)malloc(sizeof(t_stack));
-	if (!node)
-		return (NULL);
-	content = malloc(sizeof(int));
-	if (!content)
-		return (NULL);
-	*content = cont;
-	node->data = content;
-	node->next = NULL;
-	node->index = -1;
-	return (node);
+    node = (t_stack *)malloc(sizeof(t_stack));
+    if (!node)
+        return (NULL);
+    content = malloc(sizeof(long));
+    if (!content)
+    {
+        free(node);  
+        return (NULL);
+    }
+    *content = cont;
+    node->data = content;
+    node->next = NULL;
+    node->index = -1;
+    return (node);
 }
 
 void	ft_lstadd_back(t_stack **lst, t_stack *new)
