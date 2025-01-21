@@ -45,14 +45,39 @@ void	ranking_all_digite(t_stack **head_a, t_stack **head_b)
 	}
 }
 
+void small_algo(t_stack *head_a, t_stack *head_b)
+{
+	int i;
+
+	i = 0;
+	while (ft_lstsize(head_a) > 2)
+	{
+		if (get_positions_node(head_a, i) == 0)
+		{
+			push_a(&head_a,&head_b, 1);
+				i++;
+		}
+		else if (0)
+			swap_a(&head_a, 1);
+		else if (get_positions_node(head_a, i) < ft_lstsize(head_a) / 2)
+			rotate_ra(&head_a, 1);
+		else if (get_positions_node(head_a, i) >= ft_lstsize(head_a) / 2)
+			rev_rotate_rra(&head_a, 1);
+	}
+	if (get_positions_node(head_a, i) == 1)
+		swap_a(&head_a, 1);
+	while (ft_lstsize(head_b))
+		push_b(&head_a, &head_b, 1);
+	ft_free_satck(head_a);
+	exit(0);
+}
 
 void	ranking_all_digite_help(t_stack *head_a, t_stack *head_b,int start,int size)
 {
 	int end;
 
-	// if (size < 7)
-	// 	smal_algo(head_a, head_b);
-	end = 1;
+	 if (size < 7)
+	 	small_algo(head_a, head_b);
 	if(size < 100 && size >= 7)
 		end = size/7;
 	else if (size >= 100)

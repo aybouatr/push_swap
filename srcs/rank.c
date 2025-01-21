@@ -103,7 +103,7 @@ void	is_there_repetition(t_stack *head)
 		while (temp->next != NULL)
 		{
 			temp = temp->next;
-			if (*temp->data == *head->data || (*head->data > 2147483647 || *head->data < -2147483648))
+			if (*temp->data == *head->data)
 			{
 				ft_putstr_fd("Error\n", 2);
 				ft_free_satck(temp_two);
