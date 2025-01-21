@@ -112,7 +112,7 @@ int	main(int ac, char **av)
 	head_stack_b = NULL;
 	check_error(av, ac);
 	full_stack(ac, av, &head_stack_a);
-	is_there_repetition(head_stack_a);
+	(head_stack_a);
 	ascoding_by_index(head_stack_a);
 	if (!is_ranking(head_stack_a))
 		ranking_all_digite_help(head_stack_a, head_stack_b,0,ft_lstsize(head_stack_a));
