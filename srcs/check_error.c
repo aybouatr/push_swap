@@ -26,8 +26,7 @@ void	ft_putstr_fd(char *s, int fd)
 
 int	is_found_alph(char *str)
 {
-	int		i;
-	char	sign;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -62,6 +61,7 @@ int	check_error(char **av, int ac)
 		}
 		i++;
 	}
+	return (0);
 }
 
 void	full_stack(int ac, char **av, t_stack **heade)
@@ -98,8 +98,8 @@ void	ft_free_satck(t_stack *head)
 	while (head != NULL)
 	{
 		temp = head;
-		head = head->next;  
+		head = head->next;
 		free(temp->data);
-		free(temp);         
+		free(temp);
 	}
 }

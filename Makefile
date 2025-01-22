@@ -13,28 +13,27 @@ OBJ = $(SRC:.c=.o)
 OBJ_B = $(SRC_B:.c=.o)
 
 CC = cc
-CFLAGS = 
+CFLAGS = -Wall -Wextra -Werror
 
 HEADER = -I./includes
 
 %.o : srcs/%.c
-	$(CC) $(HEADER) $(CFLAGS) -c $< -o $@
+	@$(CC) $(HEADER) $(CFLAGS) -c $< -o $@
 
 all : $(PROG)
 
 $(PROG) : $(OBJ)
-	$(CC) $(OBJ) -o $(PROG)
+	@$(CC) $(OBJ) -o $(PROG)
 
 bonus : $(OBJ_B)
-	$(CC) $(OBJ_B) -o $(PROG_B)
+	@$(CC) $(OBJ_B) -o $(PROG_B)
 
 clean :
-	rm $(OBJ)
-	rm srcs/push_swap_bonus.o
-
+	@rm -rf $(OBJ)
+	@rm -rf $(OBJ_B)
 fclean : clean
-	rm $(PROG)
-	rm $(PROG_B)
+	@rm -rf $(PROG)
+	@rm -rf $(PROG_B)
 
 re: fclean all
 

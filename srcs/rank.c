@@ -16,12 +16,10 @@ void	ascoding_by_index(t_stack *head)
 {
 	t_stack	*temp1;
 	t_stack	*temp2;
-	int		i;
 
 	if (head == NULL)
 		return ;
 	temp1 = head;
-	i = 0;
 	while (temp1 != NULL)
 	{
 		temp1->index = 0;
@@ -103,7 +101,8 @@ void	is_there_repetition(t_stack *head)
 		while (temp->next != NULL)
 		{
 			temp = temp->next;
-			if (*temp->data == *head->data || (*head->data > 2147483647 || *head->data < -2147483648))
+			if (*temp->data == *head->data || (*head->data > 2147483647
+					|| *head->data < -2147483648))
 			{
 				ft_putstr_fd("Error\n", 2);
 				ft_free_satck(temp_two);

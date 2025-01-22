@@ -67,7 +67,7 @@ void	make_instructions(t_stack **head_a, t_stack **head_b, char *buffer,
 
 void	read_instructions(t_stack *head_a, t_stack *head_b)
 {
-	char	BUFFER[100];
+	char	buffer[100];
 	ssize_t	len_read;
 	int		check;
 
@@ -75,9 +75,9 @@ void	read_instructions(t_stack *head_a, t_stack *head_b)
 	check = 0;
 	while (len_read)
 	{
-		len_read = read(0, BUFFER, 100);
-		BUFFER[len_read] = '\0';
-		make_instructions(&head_a, &head_b, BUFFER, &check);
+		len_read = read(0, buffer, 99);
+		buffer[len_read] = '\0';
+		make_instructions(&head_a, &head_b, buffer, &check);
 	}
 	is_there_repetition(head_a);
 	if (check)
@@ -92,11 +92,9 @@ void	read_instructions(t_stack *head_a, t_stack *head_b)
 
 int	main(int ac, char **av)
 {
-	int i;
-	t_stack *head_stack_a;
-	t_stack *head_stack_b;
+	t_stack		*head_stack_a;
+	t_stack		*head_stack_b;
 
-	i = 0;
 	head_stack_a = NULL;
 	head_stack_b = NULL;
 	check_error(av, ac);

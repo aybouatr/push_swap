@@ -12,8 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-
-void increament_index(int* start,int* end,int size)
+void	increament_index(int *start, int *end, int size)
 {
 	if (*end < size)
 		*end = *end + 1;
@@ -21,10 +20,10 @@ void increament_index(int* start,int* end,int size)
 		*start = *start + 1;
 }
 
-void	ranking_all_digite(t_stack **head_a, t_stack **head_b)
+void	ranking_all_digite_help(t_stack **head_a, t_stack **head_b)
 {
-	int	i;
-	t_stack* h_b;
+	int		i;
+	t_stack	*h_b;
 
 	h_b = *head_b;
 	i = ft_lstsize(h_b) - 1;
@@ -47,17 +46,17 @@ void	ranking_all_digite(t_stack **head_a, t_stack **head_b)
 	exit(0);
 }
 
-void small_algo(t_stack *head_a, t_stack *head_b)
+void	small_algo(t_stack *head_a, t_stack *head_b)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (ft_lstsize(head_a) > 2)
 	{
 		if (get_positions_node(head_a, i) == 0)
 		{
-			push_a(&head_a,&head_b, 1);
-				i++;
+			push_a(&head_a, &head_b, 1);
+			i++;
 		}
 		else if (0)
 			swap_a(&head_a, 1);
@@ -74,50 +73,50 @@ void small_algo(t_stack *head_a, t_stack *head_b)
 	exit(0);
 }
 
-void	ranking_all_digite_help(t_stack *head_a, t_stack *head_b,int start,int size)
+void	ranking_all_digite(t_stack *head_a, t_stack *head_b, int start,
+		int size)
 {
-	int end;
+	int	end;
 
-	 if (size < 7)
-	 	small_algo(head_a, head_b);
-	if(size < 100 && size >= 7)
-		end = size/7;
+	if (size < 7)
+		small_algo(head_a, head_b);
+	if (size < 100 && size >= 7)
+		end = size / 7;
 	else if (size >= 100)
-		end = size/12;
+		end = size / 12;
 	while (ft_lstsize(head_a))
 	{
-		if(head_a->index <= start)
+		if (head_a->index <= start)
 		{
-			push_a(&head_a,&head_b,1);
-			rotate_rb(&head_b,1);
-			increament_index(&start,&end,size);
+			push_a(&head_a, &head_b, 1);
+			rotate_rb(&head_b, 1);
+			increament_index(&start, &end, size);
 		}
 		else if (head_a->index <= end)
 		{
-			push_a(&head_a,&head_b,1);
-			increament_index(&start,&end,size);
+			push_a(&head_a, &head_b, 1);
+			increament_index(&start, &end, size);
 		}
 		else
-			rotate_ra(&head_a,1);
+			rotate_ra(&head_a, 1);
 	}
-	ranking_all_digite(&head_a,&head_b);
+	ranking_all_digite_help(&head_a, &head_b);
 }
 
 int	main(int ac, char **av)
 {
-	int		i;
-	t_stack	*head_stack_a;
-	t_stack	*head_stack_b;
+	t_stack		*head_stack_a;
+	t_stack		*head_stack_b;
 
-	i = 0;
 	head_stack_a = NULL;
 	head_stack_b = NULL;
 	check_error(av, ac);
 	full_stack(ac, av, &head_stack_a);
-	(head_stack_a);
+	is_there_repetition(head_stack_a);
 	ascoding_by_index(head_stack_a);
 	if (!is_ranking(head_stack_a))
-		ranking_all_digite_help(head_stack_a, head_stack_b,0,ft_lstsize(head_stack_a));
+		ranking_all_digite(head_stack_a, head_stack_b, 0,
+			ft_lstsize(head_stack_a));
 	ft_free_satck(head_stack_a);
 	return (0);
 }
