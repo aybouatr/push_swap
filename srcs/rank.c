@@ -38,7 +38,8 @@ int	is_ranking(t_stack *head)
 {
 	int	i;
 
-	i = head->index;
+	if (head)
+		i = head->index;
 	while (head != NULL)
 	{
 		if (head->index != i)

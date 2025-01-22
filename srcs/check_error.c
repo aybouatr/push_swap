@@ -33,12 +33,16 @@ int	is_found_alph(char *str)
 	{
 		while (str[i] && (str[i] == ' ' || str[i] == '\t'))
 			i++;
-		if (str[i] == '-')
+		if (str[i] == '-' || str[i] == '+')
 			i++;
-		if (str[i] && !(str[i] >= '0' && str[i] <= '9'))
+
+			
+		if (!(str[i] >= '0' && str[i] <= '9'))
 			return (1);
 		while (str[i] && (str[i] >= '0' && str[i] <= '9'))
 			i++;
+		// if (str[i] && !(str[i] >= '0' && str[i] <= '9'))
+		// 	return (1);
 		if (str[i] != '\0' && !(str[i] == ' ' || str[i] == '\t'))
 			return (1);
 	}
@@ -83,6 +87,7 @@ void	full_stack(int ac, char **av, t_stack **heade)
 		if (*arr == NULL)
 		{
 			ft_putstr_fd("Error\n", 2);
+			free(arr);
 			ft_free_satck(*heade);
 			exit(1);
 		}

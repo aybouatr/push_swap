@@ -78,11 +78,16 @@ void	read_instructions(t_stack *head_a, t_stack *head_b)
 		len_read = read(0, buffer, 99);
 		buffer[len_read] = '\0';
 		make_instructions(&head_a, &head_b, buffer, &check);
+		if (check)
+		{
+			ft_putstr_fd("Error\n", 2);
+			ft_free_satck(head_a);
+			ft_free_satck(head_b);
+			exit(1);
+		}
 	}
 	is_there_repetition(head_a);
-	if (check)
-		ft_putstr_fd("Error\n", 2);
-	else if (is_ranking(head_a))
+	if (is_ranking(head_a) && ft_lstsize(head_b) == 0)
 		ft_putstr_fd("OK\n", 1);
 	else
 		ft_putstr_fd("KO\n", 1);

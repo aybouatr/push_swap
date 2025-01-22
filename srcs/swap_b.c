@@ -15,7 +15,7 @@
 void	swap_b(t_stack **head, int is_print)
 {
 	t_stack	*temp;
-	t_stack	*before_last;
+	t_stack	*second;
 
 	if (*head == NULL || (*head)->next == NULL)
 		return ;
@@ -27,11 +27,10 @@ void	swap_b(t_stack **head, int is_print)
 		return ;
 	}
 	temp = *head;
-	before_last = *head;
-	temp->next->next = NULL;
-	swap_first_last(&temp);
-	temp->next->next = before_last->next->next;
-	*head = temp;
+	second = temp->next;
+	temp->next = temp->next->next;
+	second->next = temp;
+	*head = second;
 	if (is_print)
 		ft_putstr_fd("sb\n", 1);
 }
