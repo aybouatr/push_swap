@@ -35,14 +35,10 @@ int	is_found_alph(char *str)
 			i++;
 		if (str[i] == '-' || str[i] == '+')
 			i++;
-
-			
 		if (!(str[i] >= '0' && str[i] <= '9'))
 			return (1);
 		while (str[i] && (str[i] >= '0' && str[i] <= '9'))
 			i++;
-		// if (str[i] && !(str[i] >= '0' && str[i] <= '9'))
-		// 	return (1);
 		if (str[i] != '\0' && !(str[i] == ' ' || str[i] == '\t'))
 			return (1);
 	}

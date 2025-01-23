@@ -1,5 +1,5 @@
 PROG = push_swap
-PROG_B = push_swap_bonus
+PROG_B = checker
 
 SRC = srcs/push_swap.c srcs/check_error.c srcs/ft_split.c srcs/link_list.c srcs/push_a.c srcs/push_b.c \
       srcs/rank.c srcs/rev_rotate_rra.c srcs/rev_rotate_rrb.c srcs/rev_rotate_rrr.c srcs/rotate_ra.c \

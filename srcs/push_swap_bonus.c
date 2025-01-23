@@ -65,7 +65,7 @@ void	make_instructions(t_stack **head_a, t_stack **head_b, char *buffer,
 		*check = 1;
 }
 
-void	read_instructions(t_stack *head_a, t_stack *head_b)
+int	read_instructions(t_stack *head_a, t_stack *head_b)
 {
 	char	buffer[100];
 	ssize_t	len_read;
@@ -91,14 +91,13 @@ void	read_instructions(t_stack *head_a, t_stack *head_b)
 		ft_putstr_fd("OK\n", 1);
 	else
 		ft_putstr_fd("KO\n", 1);
-	ft_free_satck(head_a);
-	ft_free_satck(head_b);
+	return (ft_free_satck(head_a), ft_free_satck(head_b), 0);
 }
 
 int	main(int ac, char **av)
 {
-	t_stack		*head_stack_a;
-	t_stack		*head_stack_b;
+	t_stack	*head_stack_a;
+	t_stack	*head_stack_b;
 
 	head_stack_a = NULL;
 	head_stack_b = NULL;

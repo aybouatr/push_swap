@@ -56,8 +56,6 @@ void	small_algo(t_stack *head_a, t_stack *head_b)
 			push_a(&head_a, &head_b, 1);
 			i++;
 		}
-		else if (0)
-			swap_a(&head_a, 1);
 		else if (get_positions_node(head_a, i) < ft_lstsize(head_a) / 2)
 			rotate_ra(&head_a, 1);
 		else if (get_positions_node(head_a, i) >= ft_lstsize(head_a) / 2)
@@ -76,10 +74,9 @@ void	ranking_all_digite(t_stack *head_a, t_stack *head_b, int start,
 {
 	int	end;
 
+	end = size / 7;
 	if (size < 7)
 		small_algo(head_a, head_b);
-	if (size <= 100)
-		end = size / 7;
 	else if (size > 100)
 		end = size / 12;
 	while (ft_lstsize(head_a))
@@ -94,8 +91,6 @@ void	ranking_all_digite(t_stack *head_a, t_stack *head_b, int start,
 		{
 			push_a(&head_a, &head_b, 1);
 			increament_index(&start, &end, size);
-			if (ft_lstsize(head_b) > 2 && *head_b->data < *head_b->next->data)
-				swap_b(&head_b, 1);
 		}
 		else
 			rotate_ra(&head_a, 1);
@@ -105,8 +100,8 @@ void	ranking_all_digite(t_stack *head_a, t_stack *head_b, int start,
 
 int	main(int ac, char **av)
 {
-	t_stack		*head_stack_a;
-	t_stack		*head_stack_b;
+	t_stack	*head_stack_a;
+	t_stack	*head_stack_b;
 
 	head_stack_a = NULL;
 	head_stack_b = NULL;
