@@ -86,7 +86,6 @@ int	read_instructions(t_stack *head_a, t_stack *head_b)
 			exit(1);
 		}
 	}
-	is_there_repetition(head_a);
 	if (is_ranking(head_a) && ft_lstsize(head_b) == 0)
 		ft_putstr_fd("OK\n", 1);
 	else
@@ -103,6 +102,7 @@ int	main(int ac, char **av)
 	head_stack_b = NULL;
 	check_error(av, ac);
 	full_stack(ac, av, &head_stack_a);
+	is_there_repetition(head_stack_a);
 	ascoding_by_index(head_stack_a);
 	read_instructions(head_stack_a, head_stack_b);
 }
